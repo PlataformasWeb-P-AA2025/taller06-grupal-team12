@@ -4,16 +4,16 @@ from sqlalchemy import create_engine
 # datos
 # para el ejemplo se usa la base de datos
 # sqlite
-engine = create_engine('sqlite:///basepersonas.db')
+engine = create_engine('sqlite:///basepaises.db')
 
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String
 
 class Paises(Base):
-    __tablename__ = 'laspersonas'
+    __tablename__ = 'paises'
     
     id = Column(Integer, primary_key=True)
     nombrePais = Column(String)
@@ -23,7 +23,7 @@ class Paises(Base):
     geonameId = Column(Integer)
     itu = Column(String)
     lenguaje = Column(String)
-    independiente = Column(Boolean)
+    independiente = Column(String)
 
 
 Base.metadata.create_all(engine)
